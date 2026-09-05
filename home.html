@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Bites - Cinema Food Ordering</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="top">
+        <div class="name">
+            <h1>🎬 TASTY BITES</h1>
+        </div>
+        <div class="cart">
+            <button onclick="window.location.href='cart/cart.html'" class="cart-btn" aria-label="Cart">
+                🛒
+                <span class="cart-badge">0</span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="logo">
+         <img src="images/logo.png" alt="logo" srcset="">
+    </div>
+    
+    <div class="scroll-container">
+         <div class="img-track">
+            <button class="image-btn" onclick="off1()" aria-label="Offer 1">
+                <img src="images/offer1.jpg" alt="burger offer" srcset="">
+            </button>
+            <button class="image-btn" onclick="off2()" aria-label="Offer 2">
+                <img src="images/offer2.jpg" alt="french fries offer" srcset="">
+            </button>
+            <button class="image-btn" onclick="off3()" aria-label="Combo meal offer">
+                <img src="images/offer3.jpg" alt="combo meal offer" srcset="">
+            </button>
+            <button class="image-btn" onclick="off4()" aria-label="Red bull offer">
+                <img src="images/offer4.jpg" alt="redbull offer" srcset="">
+            </button>
+         </div>
+    </div>
+    
+    <div class="search">
+        <input 
+            type="text"
+            id="search"
+            placeholder="🔍 Search food..."
+            oninput="searchFood()">
+    </div>
+    <div id="noResult">
+        No food found
+    </div>
+    <div class="allitems">
+        <div class="dishes">
+            <button class="active-cat" onclick="filterCategory('all')">ALL</button>
+            <button data-category="fries" onclick="filterCategory('fries')">FRIES</button>
+            <button data-category="drink" onclick="filterCategory('drink')">DRINK</button>
+            <button data-category="snack" onclick="filterCategory('snack')">SNACK</button>
+        </div>
+    </div>
+        <div id="topSearchableFoods">
+        <div class="food" data-name="burger" data-category="snack">
+            <img src="images/burger.jpg" alt="burger" srcset="">
+
+            <h2>BURGER</h2>
+            <p>Cheesy chicken Burger</p>
+            
+            <h2 style="color:rgb(255, 89, 0)">$150</h2>
+            <button onclick="buy('Burger',150)">+Add</button>
+        </div>
+        <div class="food" data-name="FrenchFries" data-category="fries">
+            <img src="images/Fries.jpg" alt="frenchfries" srcset="">
+            <h2>FRENCH FRIES</h2>
+            <p>Classic crispy fries</p>
+            <h2 style="color:rgb(255, 89, 0)">$30</h2>
+            <button onclick="buy('French Fries',30)">+Add</button>
+        </div>
+        <div class="food" data-name="coke" data-category="drink">
+            <img src="images/coke.jpg" alt="coke" srcset="">
+            <h2>COKE</h2>
+            <p>Refreshing cold drink</p>
+            <h2 style="color:rgb(255, 89, 0)">$5</h2>
+            <button onclick="buy('Coke',5)">+Add</button>
+        </div>
+        <div class="food" data-name="VegBurger" data-category="snack">
+            <img src="images/vegburgger.jpg" alt="vegburgger" srcset="">
+            <h2>VEG BURGGER</h2>
+            <p>Crispy veg burger</p>
+            <h2 style="color:rgb(255, 89, 0)">$10</h2>
+            <button onclick="buy('vegburger',10)">+Add</button>
+        </div>
+        <div class="food" data-name="RedBull" data-category="drink">
+            <img src="images/redbull.jpg" alt="coke" srcset="">
+            <h2>RED BULL</h2>
+            <p>Energy drink</p>
+            <h2 style="color:rgb(255, 89, 0)">$5</h2>
+            <button onclick="buy('RedBull',5)">+Add</button>
+        </div>
+        <div class="food" data-name="cappuccino" data-category="drink">
+            <img src="images/cappuccino.jpg" alt="cappuccino" srcset="">
+            <h2>CAPPUCCINO</h2>
+            <p>Hot coffee beverage</p>
+            <h2 style="color:rgb(255, 89, 0)">$20</h2>
+            <button onclick="buy('Cappuccino',20)">+Add</button>
+        </div>
+    </div>
+    <div class="color">
+        <div class="adds">
+            <h2 class="section-heading">⭐ Most Liked Foods</h2>
+            <div class="liked-scroll-container">
+                <div class="liked-track">
+                    <div class="liked-item" data-name="popcorn" data-category="snack">
+                        <img src="images/popcorn.png" alt="Popcorn">
+                        <p class="item-name">POPCORN</p>
+                        <p class="item-price">$120</p>
+                        <button class="add-to-cart-btn" onclick="buy('popcorn',120)">Add to Cart</button>
+                    </div>
+                    <div class="liked-item" data-name="coffee" data-category="drink">
+                        <img src="images/COFFEE.png" alt="coffee">
+                        <p class="item-name">COFFEE</p>
+                        <p class="item-price">$30</p>
+                        <button class="add-to-cart-btn" onclick="buy('coffee',30)">Add to Cart</button>
+                    </div>
+                    <div class="liked-item" data-name="pizza" data-category="snack">
+                        <img src="images/pizza.png" alt="pizza">
+                        <p class="item-name">PIZZA</p>
+                        <p class="item-price">$200</p>
+                        <button class="add-to-cart-btn" onclick="buy('pizza',200)">Add to Cart</button>
+                    </div>
+                    <div class="liked-item" data-name="cappuccino" data-category="drink">
+                        <img src="images/cappuccino.jpg" alt="Cappuccino">
+                        <p class="item-name">CAPPUCCINO</p>
+                        <p class="item-price">$20</p>
+                        <button class="add-to-cart-btn" onclick="buy('Cappuccino',20)">Add to Cart</button>
+                    </div>
+                    <div class="liked-item" data-name="chips" data-category="fries">
+                        <img src="images/chips.jpg" alt="Chips">
+                        <p class="item-name">CHIPS</p>
+                        <p class="item-price">$15</p>
+                        <button class="add-to-cart-btn" onclick="buy('chips',15)">Add to Cart</button>
+                    </div>
+                    <div class="liked-item" data-name="sprit" data-category="drink">
+                        <img src="images/sprit.png" alt="Sprit">
+                        <p class="item-name">SPRIT</p>
+                        <p class="item-price">$10</p>
+                        <button class="add-to-cart-btn" onclick="buy('SPRIT',10)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-foods">
+        <div class="food" data-name="chips" data-category="fries">
+            <img src="images/chips.jpg" alt="chips" srcset="">
+            <h2>CHIPS</h2>
+            <p>Crunchy potato chips</p>
+            <h2 style="color:rgb(255, 89, 0)">$15</h2>
+            <button onclick="buy('chips',15)">+Add</button>
+        </div>
+        <div class="food" data-name="pepsi" data-category="drink">
+            <img src="images/Pepsi.jpg" alt="Pepsi" srcset="">
+            <h2>PEPSI</h2>
+            <p>Cool refreshing drink</p>
+            <h2 style="color:rgb(255, 89, 0)">$5</h2>
+            <button onclick="buy('pepsi',5)">+Add</button>
+        </div>
+        <div class="food" data-name="chocobar" data-category="snack">
+            <img src="images/Chocobar.jpg" alt="ice cream" srcset="">
+            <h2>CHOCO BAR</h2>
+            <p>Cold chocolate ice cream</p>
+            <p></p>
+            <h2 style="color:rgb(255, 89, 0)">$20</h2>
+            <button onclick="buy('Chocobar',20)">+Add</button>
+        </div>
+        <div class="food" data-name="corn" data-category="snack">
+            <img src="images/corn.jpg" alt="CORN" srcset="">
+            <h2>CORN</h2>
+            <p>Sweet and salty corn</p>
+            <p></p>
+            <h2 style="color:rgb(255, 89, 0)">$10</h2>
+            <button onclick="buy('corn',10)">+Add</button>
+        </div>
+    </div>
+
+    <div class="extra"></div>
+
+    <div class="bottumnav">
+        <div class="nav-item" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            <span>🏠</span>
+            Home
+        </div>
+        <div class="nav-item">
+            <span>❤️</span>
+            Favorites
+        </div>
+        <div class="nav-item" onclick="window.location.href='cart/cart.html'">
+            <span class="nav-icon-wrapper">
+                🛒
+                <span class="cart-badge">0</span>
+            </span>
+            Cart
+        </div>
+        <div class="nav-item"onclick="window.location.href='profile/prifile.html'">
+            <span>👤</span>
+            Profile
+        </div>
+    </div>
+
+    <script src="cart/cart.js"></script> 
+    <script src="home.js"></script>
+</body>
+
+</html>

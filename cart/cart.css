@@ -1,0 +1,414 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+.top {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #333;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0 15px;
+}
+
+.top-back {
+  display: flex;
+  align-items: center;
+}
+
+.back-btn {
+  background-color: #222;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.back-btn:hover {
+  background-color: goldenrod;
+  color: #000;
+}
+
+.name {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: goldenrod;
+  text-align: center;
+}
+
+.name h1 {
+  font-size: 20px;
+}
+
+.cart-header-icon {
+  position: relative;
+}
+
+.cart-btn {
+  position: relative;
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid goldenrod;
+  font-size: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #e50914;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  box-shadow: 0 0 5px rgba(229, 9, 20, 0.8);
+  font-family: sans-serif;
+}
+
+.nav-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-icon-wrapper .cart-badge {
+  top: -4px;
+  right: -10px;
+}
+
+.cart-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.cart-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #222;
+  padding-bottom: 10px;
+}
+
+.cart-title-row h2 {
+  font-size: 20px;
+  color: goldenrod;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+.clear-cart-btn {
+  background: none;
+  border: 1px solid #444;
+  color: #888;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-cart-btn:hover {
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+.cart-item {
+  background: linear-gradient(135deg, #222, #161616);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.2s;
+}
+
+.cart-item:hover {
+  border-color: rgba(218, 165, 32, 0.6);
+}
+
+.cart-item-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(218, 165, 32, 0.5);
+  flex-shrink: 0;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-title {
+  color: goldenrod;
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 2px;
+}
+
+.cart-item-unit-price {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  border: 1px solid #444;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.qty-btn {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.qty-btn:hover {
+  background-color: goldenrod;
+  color: #000;
+}
+
+.qty-count {
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  min-width: 20px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: rgba(255, 77, 79, 0.15);
+}
+
+.cart-item-subtotal {
+  text-align: right;
+  flex-shrink: 0;
+  padding-left: 8px;
+}
+
+.subtotal-label {
+  display: block;
+  font-size: 10px;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.subtotal-value {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff7700;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.empty-cart {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #141414;
+  border-radius: 12px;
+  border: 1px dashed #333;
+  margin-top: 20px;
+}
+.empty-icon {
+  font-size: 50px;
+  margin-bottom: 12px;
+}
+.empty-cart h3 {
+  font-size: 18px;
+  color: goldenrod;
+  margin-bottom: 8px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.empty-cart p {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+.browse-btn {
+  background-color: goldenrod;
+  color: #000;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.browse-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(218, 165, 32, 0.6);
+}
+.order-summary {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 16px;
+}
+.total span:last-child {
+  color: #ff7700;
+  font-size: 24px;
+}
+.bottum-button button {
+  width: 100%;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  border: 1px solid #43a047;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+}
+.bottum-button button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.6);
+}
+.bottum-button button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.bottum-button button:disabled {
+  background: #333;
+  border-color: #444;
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.extra-space {
+  height: 80px;
+}
+.bottumnav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(480px, 100%);
+  height: 65px;
+  background-color: #151515;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #333;
+  z-index: 100;
+}
+.nav-item {
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+  color: goldenrod;
+}
+.nav-item span {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+.theater-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background-color: #222;
+  color: #fff;
+  border: 1px solid goldenrod;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6), 0 0 10px rgba(218, 165, 32, 0.4);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.theater-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
